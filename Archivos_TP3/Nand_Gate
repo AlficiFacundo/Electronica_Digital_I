@@ -1,0 +1,19 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+-- Declaración de la entidad (entity)
+entity AND_GATE is
+  Port ( input_A : in STD_LOGIC_VECTOR (7 downto 0);
+    input_B : in STD_LOGIC_VECTOR (7 downto 0);
+    output_Y : out STD_LOGIC_VECTOR (7 downto 0)
+    );
+end AND_GATE;
+architecture Behavioral of AND_GATE is
+signal salida: STD_LOGIC_VECTOR (7 downto 0);
+Begin
+  process(A, B)
+    Begin
+      for i in 0 to 7 loop
+      salida(i) <= A(i) and B(i);
+    end loop;
+    output_Y<= not (salida);
+  end process;
