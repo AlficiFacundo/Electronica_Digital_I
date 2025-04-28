@@ -1,0 +1,26 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity Multi_4 is
+  Port ( A : in STD_LOGIC;
+    B : in STD_LOGIC;
+    C : in STD_LOGIC;
+    D : in STD_LOGIC;
+    selector : in STD_LOGIC_VECTOR (1 downto 0);
+    salida : out STD_LOGIC);
+end Multi_4;
+architecture Behavioral of Multi_4 is
+begin
+  process(A, B, C, D, selector)
+    begin
+      case selector is
+        when "00" =>
+          salida <= A;
+        when "01" =>
+          salida <= B;
+        when "10" =>
+          salida <= C;
+        when "11" =>
+          salida <= D;
+    end case;
+  end process;
+end Behavioral;
